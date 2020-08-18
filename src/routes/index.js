@@ -1,11 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const { testEnvironmentVariable } = require('../settings');
 
+const indexRouter = express.Router();
 
+indexRouter.get('/', (req, res) => res.status(200).json({ message: testEnvironmentVariable }));
 
-router.get('/', function(req, res, next) {
-  return res.status(200).json({ message: 'run' });
-});
-
-
-module.exports = router;
+module.exports = indexRouter;
